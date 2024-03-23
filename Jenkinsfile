@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Building & Dockerizing') {
             steps {
                 script {
                     sh "docker build -t $IMAGE_NAME:$IMAGE_TAG -f Dockerfile ."
@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('Pushing Docker Image') {
             steps {
                 script {                
                     withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-        stage('Deploy Locally') {
+        stage('Deployment') {
             steps {
                 script {
                    
