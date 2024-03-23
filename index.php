@@ -1,7 +1,6 @@
 <?php
 include_once 'db_config.php';
 
-// Check if the 'users' table exists, if not, create it
 $table_check_query = "SHOW TABLES LIKE 'users'";
 $table_check_result = $conn->query($table_check_query);
 
@@ -19,7 +18,6 @@ if ($table_check_result->num_rows == 0) {
     }
 }
 
-// Create Record
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -33,7 +31,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Read Records
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 ?>
