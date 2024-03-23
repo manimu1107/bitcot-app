@@ -5,7 +5,7 @@ $username = "admin";
 $password = "admin1234";
 $database = "bitcotdb1";
 
-// Create connection
+
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
